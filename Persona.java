@@ -3,22 +3,22 @@ import java.util.Random;
 /* Gestiona la persona que hace la fila de espera */ 
 public class Persona 
 { 
- int codigo; /* CÛdigo del cliente */ 
+ int codigo; /* C√≥digo del cliente */ 
  
- int tramA; /* DuraciÛn del tr·mite A */ 
- int tramB; /* DuraciÛn del tr·mite B */ 
- int tramC; /* DuraciÛn del tr·mite C */ 
- int tramD; /* DuraciÛn del tr·mite D */ 
+ int tramA; /* Duraci√≥n del tr√°mite A */ 
+ int tramB; /* Duraci√≥n del tr√°mite B */ 
+ int tramC; /* Duraci√≥n del tr√°mite C */ 
+ int tramD; /* Duraci√≥n del tr√°mite D */ 
  
- int tramAini; /* DuraciÛn original del tr·mite A */ 
- int tramBini; /* DuraciÛn original del tr·mite B */ 
- int tramCini; /* DuraciÛn original del tr·mite C */ 
- int tramDini; /* DuraciÛn original del tr·mite D */ 
+ int tramAini; /* Duraci√≥n original del tr√°mite A */ 
+ int tramBini; /* Duraci√≥n original del tr√°mite B */ 
+ int tramCini; /* Duraci√≥n original del tr√°mite C */ 
+ int tramDini; /* Duraci√≥n original del tr√°mite D */ 
  
- /* 1=Haciendo fila, 2=AtendiÈndose, 3=Sale del sistema */ 
+ /* 1=Haciendo fila, 2=Atendi√©ndose, 3=Sale del sistema */ 
  int estado; 
  
- /* En que minuto llegÛ la persona a la cola */ 
+ /* En que minuto lleg√≥ la persona a la cola */ 
  int minLlega; 
  
  /* En que minuto sale del sistema */ 
@@ -49,7 +49,7 @@ public class Persona
   case 3: tramD--; break; 
   } 
  
-  /* Si terminÛ de atenderse todos los tr·mites, 
+  /* Si termin√≥ de atenderse todos los tr√°mites, 
    la persona sale del sistema */ 
   if (tramA == 0 && tramB == 0 && tramC == 0 && tramD == 0) 
   { 
@@ -66,14 +66,14 @@ public class Persona
      por el servidor */ 
   if (minServidor == 0) minServidor = minuto; 
  
-  /* Disminuye en un minuto alg˙n tr·mite 
+  /* Disminuye en un minuto alg√∫n tr√°mite 
      que debe hacer */ 
   if (tramA > 0) { tramA--; return; } 
   if (tramB > 0) { tramB--; return; } 
   if (tramC > 0) { tramC--; return; } 
   if (tramD > 0) { tramD--; return; } 
  
-  /* Si terminÛ de atenderse todos los tr·mites, 
+  /* Si termin√≥ de atenderse todos los tr√°mites, 
    la persona sale del sistema */ 
   estado = 3; 
   minSale = minuto; 
@@ -99,7 +99,7 @@ public class Persona
      int tramBmax, int tramCmin, int tramCmax, 
      int tramDmin, int tramDmax) 
  { 
-  /* CÛdigo del cliente */ 
+  /* C√≥digo del cliente */ 
   this.codigo = Codigo; 
  
   /* Almacena en que minuto llega a la fila */ 
@@ -110,19 +110,19 @@ public class Persona
   /* Estado de la persona por defecto es inactiva */ 
   estado = 0; 
  
-  /* Inicializa los tiempos de los tr·mites a cero */ 
+  /* Inicializa los tiempos de los tr√°mites a cero */ 
   tramA=0; 
   tramB=0; 
   tramC=0; 
   tramD=0; 
  
-  /* De 1 a 4 tr·mites */ 
+  /* De 1 a 4 tr√°mites */ 
   int TotalTramite = (int) (azar.nextDouble()*(4-1)+1); 
  
-  /* Dependiendo del n˙mero de tr·mites, 
-   selecciona que tr·mites tendr· que 
+  /* Dependiendo del n√∫mero de tr√°mites, 
+   selecciona que tr√°mites tendr√° que 
    hacer la persona y cuanto tiempo 
-   por tr·mite */ 
+   por tr√°mite */ 
   while (TotalTramite > 0) 
   { 
   double numAzar = azar.nextDouble(); 
@@ -151,7 +151,7 @@ public class Persona
   } 
   } 
  
-  /* Guarda originalmente la duraciÛn de los tr·mites */ 
+  /* Guarda originalmente la duraci√≥n de los tr√°mites */ 
   tramAini = tramA; 
   tramBini = tramB; 
   tramCini = tramC;
